@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+    <!-- Configure the data source and leave it to Spring to do it -->
+    <typeAliases>
+        <package name="com.ood.team.entity"/>
+    </typeAliases>
+
+    <plugins>
+        <!-- com.github.pagehelper is the package name of the PageHelper class -->
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <!-- Use the following method to configure the parameters, and all the parameters will be introduced later -->
+            <property name="helperDialect" value="mysql"/>
+        </plugin>
+    </plugins>
+
+</configuration>

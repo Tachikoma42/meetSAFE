@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<!-- Use mybatis-generator to quickly generate pojo entity classes, dao (mapper) interface, mapper.xml file-->
+<generatorConfiguration>
+    <properties resource="database.properties"/>
+    <context id="testTables" targetRuntime="MyBatis3Simple">
+        <commentGenerator>
+            <!-- Whether to remove the automatically generated annotations true: yes: false: no -->
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+        <!--Database connection information: driver class, connection address, user name, password -->
+        <jdbcConnection driverClass="${driver}"
+                        connectionURL="${url}"
+                        userId="${user}"
+                        password="${password}">
+        </jdbcConnection>
+        <!-- <jdbcConnection driverClass="oracle.jdbc.OracleDriver" connectionURL="jdbc:oracle:thin:@127.0.0.1:1521:yycg"
+            userId="yycg" password="yycg"> </jdbcConnection> -->
+
+        <!-- The default is false, the JDBC DECIMAL and NUMERIC types are parsed as Integer, when it is true, the JDBC DECIMAL and NUMERIC types are parsed as java.math.BigDecimal -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!-- targetProject:generate the PO class location-->
+        <javaModelGenerator targetPackage="com.ood.team.entity" targetProject=".\src\main\java">
+            <!-- enableSubPackages:Whether to let schema as the suffix of the package -->
+            <property name="enableSubPackages" value="false" />
+            <!-- Spaces before and after the value returned from the database is cleaned up -->
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+        <!-- targetProject:mapper The location where the mapping file is generated -->
+        <sqlMapGenerator targetPackage="com.ood.team.mapper" targetProject=".\src\main\resources">
+            <!-- enableSubPackages:Whether to let schema as the suffix of the package -->
+            <property name="enableSubPackages" value="false" />
+        </sqlMapGenerator>
+        <!-- targetPackage: the location where the mapper interface is generated -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.ood.team.dao" targetProject=".\src\main\java">
+            <!-- enableSubPackages:Whether to let schema as the suffix of the package -->
+            <property name="enableSubPackages" value="false" />
+        </javaClientGenerator>
+        <!-- Specify the database table -->
+<!--        <table tableName="tb_admin" domainObjectName="Admin"/>-->
+        <table tableName="tb_student" domainObjectName="Student"/>
+<!--        <table tableName="tbl_activity" domainObjectName="Activity"/>-->
+<!--        <table tableName="teacher" domainObjectName="Teacher"/>-->
+
+    </context>
+</generatorConfiguration>
