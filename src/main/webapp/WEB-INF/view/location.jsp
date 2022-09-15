@@ -101,7 +101,8 @@
 
         <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
         <script
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCc2ztqsADSTSI3gjxJOnsTn8pUu71JfjY&callback=initAutocomplete&libraries=places&v=weekly"
+                <!-- Add your own google api key -->
+                src="https://maps.googleapis.com/maps/api/js?key=*****************************&callback=initAutocomplete&libraries=places&v=weekly"
                 async
         ></script>
       </div>
